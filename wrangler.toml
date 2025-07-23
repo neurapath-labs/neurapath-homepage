@@ -6,5 +6,8 @@ compatibility_date = "2025-07-22"
 directory = ".svelte-kit/cloudflare"
 binding = "ASSETS"
 
+[placement]
+mode = "smart"
+
 [vars]
 ENVIRONMENT = "production"
