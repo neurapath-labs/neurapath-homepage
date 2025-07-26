@@ -1,473 +1,215 @@
 <script lang="ts">
-    import Header from "$lib/components/Header.svelte";
+	import Header from "$lib/components/Header.svelte";
 </script>
 
 <svelte:head>
-    <title>Neurapath - Beautiful and Powerful Learning</title>
-    <meta
-        name="description"
-        content="Beautiful and powerful learning based on scientific methods. The all-in-one tool for thinking and learning."
-    />
+	<title>Neurapath - Beautiful and Powerful Learning</title>
+	<meta
+		name="description"
+		content="Beautiful and powerful learning based on scientific methods. The all-in-one tool for thinking and learning."
+	/>
 </svelte:head>
 
-<div class="page-container">
-    <!-- Header Section -->
-    <Header />
+<!-- Page wrapper -->
+<div class="w-full min-h-screen flex flex-col items-center bg-white font-sans">
+	<!-- Header -->
+	<Header />
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                Beautiful and powerful learning based on scientific methods.
-            </h1>
-            <p class="hero-subtitle">
-                The all-in-one tool for thinking and learning: Built to empower
-                students, researchers and professionals
-            </p>
-            <div class="hero-buttons">
-                <button class="primary-button">Learn more</button>
-                <button class="secondary-button">Enter Evecloud</button>
-            </div>
-        </div>
-    </section>
+	<!-- Hero -->
+	<section
+		class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-20 flex flex-col items-center text-center"
+	>
+		<div class="max-w-[1080px]">
+			<h1
+				class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight text-neutral-900 mb-8"
+			>
+				Beautiful and powerful learning based on scientific methods.
+			</h1>
+			<p
+				class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight text-neutral-900 mb-12"
+			>
+				The all-in-one tool for thinking and learning: Built to empower students,
+				researchers and professionals
+			</p>
 
-    <!-- Features Section -->
-    <section class="features-section">
-        <!-- Feature 1: Faster Learning -->
-        <div class="feature">
-            <div class="feature-content">
-                <h2 class="feature-title">Faster learning.</h2>
-                <p class="feature-description">
-                    Evecloud is a simple yet powerful app that utilises a
-                    technique which is proven to better focus and reduce
-                    stress.¹ ²
-                </p>
-            </div>
-            <div class="feature-icon">
-                <img
-                    alt="Faster Learning"
-                    src="/images/cloud-sharing-upload.svg"
-                    class="feature-image"
-                />
-            </div>
-        </div>
+			<div
+				class="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center"
+			>
+				<button
+					class="px-10 py-3 bg-blue-500 border-2 border-blue-500 text-white rounded transition hover:bg-blue-600"
+				>
+					Learn more
+				</button>
+				<button
+					class="px-10 py-3 text-blue-500 rounded transition hover:text-blue-600"
+				>
+					Enter Evecloud
+				</button>
+			</div>
+		</div>
+	</section>
 
-        <!-- Feature 2: Knowledge that lasts -->
-        <div class="feature feature-reverse">
-            <div class="feature-icon">
-                <img
-                    alt="Knowledge Management"
-                    src="/images/graph.svg"
-                    class="feature-image"
-                />
-            </div>
-            <div class="feature-content">
-                <h2 class="feature-title">Knowledge that lasts forever.</h2>
-                <p class="feature-description">
-                    Evecloud is a simple yet powerful app that utilises a
-                    technique which is proven to better focus and reduce
-                    stress.¹ ²
-                </p>
-            </div>
-        </div>
+	<!-- Features -->
+	<section
+		class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-16"
+	>
+		<!-- Feature 1 -->
+		<div
+			class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-36"
+		>
+			<div class="flex-1">
+				<h2
+					class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4 leading-snug"
+				>
+					Faster learning.
+				</h2>
+				<p
+					class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl"
+				>
+					Evecloud is a simple yet powerful app that utilises a technique which
+					is proven to better focus and reduce stress.¹ ²
+				</p>
+			</div>
+			<div class="flex-shrink-0">
+				<img
+					src="/images/cloud-sharing-upload.svg"
+					alt="Faster Learning"
+					class="w-32 h-32"
+				/>
+			</div>
+		</div>
 
-        <!-- Feature 3: Flashcards & cloze deletions -->
-        <div class="feature">
-            <div class="feature-content">
-                <h2 class="feature-title">Flashcards & cloze deletions.</h2>
-                <p class="feature-description">
-                    Capture and link your ideas. RemNote is built for thinking
-                    and long-term knowledge management.
-                </p>
-            </div>
-            <div class="feature-icon">
-                <img
-                    alt="Flashcards"
-                    src="/images/flashcards.svg"
-                    class="feature-image"
-                />
-            </div>
-        </div>
-    </section>
+		<!-- Feature 2 -->
+		<div
+			class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-16 mb-36"
+		>
+			<div class="flex-1">
+				<h2
+					class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4 leading-snug"
+				>
+					Knowledge that lasts forever.
+				</h2>
+				<p
+					class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl"
+				>
+					Evecloud is a simple yet powerful app that utilises a technique which
+					is proven to better focus and reduce stress.¹ ²
+				</p>
+			</div>
+			<div class="flex-shrink-0">
+				<img
+					src="/images/graph.svg"
+					alt="Knowledge Management"
+					class="w-32 h-32"
+				/>
+			</div>
+		</div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <h2 class="testimonials-title">
-            Loved by so many people around the world.
-        </h2>
-        <div class="testimonial">
-            <p class="testimonial-text">
-                "This learning platform is amazing! It has helped me so much in
-                my studies and I would recommend it to any medical student."
-            </p>
-            <div class="testimonial-author">
-                <span class="author-name">thrvskn</span>
-                <span class="author-source">– App Store 🇺🇸</span>
-            </div>
-        </div>
-    </section>
+		<!-- Feature 3 -->
+		<div
+			class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-36"
+		>
+			<div class="flex-1">
+				<h2
+					class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4 leading-snug"
+				>
+					Flashcards &amp; cloze deletions.
+				</h2>
+				<p
+					class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl"
+				>
+					Capture and link your ideas. RemNote is built for thinking and
+					long-term knowledge management.
+				</p>
+			</div>
+			<div class="flex-shrink-0">
+				<img
+					src="/images/flashcards.svg"
+					alt="Flashcards"
+					class="w-32 h-32"
+				/>
+			</div>
+		</div>
+	</section>
 
-    <!-- Spacer -->
-    <div class="spacer"></div>
+	<!-- Testimonials -->
+	<section
+		class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-16 text-center"
+	>
+		<h2
+			class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-12"
+		>
+			Loved by so many people around the world.
+		</h2>
+		<div class="max-w-2xl mx-auto px-8 py-16">
+			<p
+				class="text-base md:text-lg text-neutral-900 leading-relaxed mb-8"
+			>
+				"This learning platform is amazing! It has helped me so much in my
+				studies and I would recommend it to any medical student."
+			</p>
+			<div class="flex justify-center gap-2">
+				<span class="text-sm text-neutral-900 italic">thrvskn</span>
+				<span class="text-sm text-neutral-900">– App Store 🇺🇸</span>
+			</div>
+		</div>
+	</section>
 
-    <!-- Footer Section -->
-    <footer class="page-footer">
-        <div class="footer-content">
-            <div class="footer-columns">
-                <!-- About Column -->
-                <div class="footer-column">
-                    <h3 class="footer-column-title">About</h3>
-                    <a href="/story" class="footer-link">Our Story</a>
-                    <a href="/blog" class="footer-link">Blog</a>
-                    <a href="/roadmap" class="footer-link">Roadmap</a>
-                    <a href="/changelog" class="footer-link">Changelog</a>
-                </div>
+	<!-- Spacer -->
+	<div class="w-full h-24 bg-blue-500"></div>
 
-                <!-- Support Column -->
-                <div class="footer-column">
-                    <h3 class="footer-column-title">Support</h3>
-                    <a href="/help" class="footer-link">Help</a>
-                    <a href="/docs" class="footer-link">Documentation</a>
-                    <a href="/contribute" class="footer-link">Contribute</a>
-                    <a href="/contact" class="footer-link">Contact</a>
-                </div>
+	<!-- Footer -->
+	<footer
+		class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 pt-14 bg-white"
+	>
+		<div class="px-12">
+			<div
+				class="flex flex-col lg:flex-row justify-between py-9 gap-8"
+			>
+				<!-- About -->
+				<div class="flex flex-col gap-4">
+					<h3 class="text-lg font-bold text-neutral-900 mb-2">About</h3>
+					<a href="/story" class="text-lg text-neutral-900 hover:text-blue-500">Our Story</a>
+					<a href="/blog" class="text-lg text-neutral-900 hover:text-blue-500">Blog</a>
+					<a href="/roadmap" class="text-lg text-neutral-900 hover:text-blue-500">Roadmap</a>
+					<a href="/changelog" class="text-lg text-neutral-900 hover:text-blue-500">Changelog</a>
+				</div>
 
-                <!-- Legal Column -->
-                <div class="footer-column">
-                    <h3 class="footer-column-title">Legal</h3>
-                    <a href="/imprint" class="footer-link">Imprint</a>
-                    <a href="/privacy" class="footer-link">Privacy</a>
-                    <a href="/terms" class="footer-link">Terms of Use</a>
-                </div>
+				<!-- Support -->
+				<div class="flex flex-col gap-4">
+					<h3 class="text-lg font-bold text-neutral-900 mb-2">Support</h3>
+					<a href="/help" class="text-lg text-neutral-900 hover:text-blue-500">Help</a>
+					<a href="/docs" class="text-lg text-neutral-900 hover:text-blue-500">Documentation</a>
+					<a href="/contribute" class="text-lg text-neutral-900 hover:text-blue-500">Contribute</a>
+					<a href="/contact" class="text-lg text-neutral-900 hover:text-blue-500">Contact</a>
+				</div>
 
-                <!-- Social Column -->
-                <div class="footer-column">
-                    <h3 class="footer-column-title">Follow us</h3>
-                    <div class="social-links">
-                        <div class="social-icon"></div>
-                        <div class="social-icon"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+				<!-- Legal -->
+				<div class="flex flex-col gap-4">
+					<h3 class="text-lg font-bold text-neutral-900 mb-2">Legal</h3>
+					<a href="/imprint" class="text-lg text-neutral-900 hover:text-blue-500">Imprint</a>
+					<a href="/privacy" class="text-lg text-neutral-900 hover:text-blue-500">Privacy</a>
+					<a href="/terms" class="text-lg text-neutral-900 hover:text-blue-500">Terms of Use</a>
+				</div>
 
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <p class="footer-tagline">Made with ♥ in Sweden</p>
-            <p class="footer-copyright">
-                © 2025 Martin Jakobsson | Mail: Hello@neurapath.com | Website:
-                www.neurapath.com
-            </p>
-        </div>
-    </footer>
+				<!-- Social -->
+				<div class="flex flex-col gap-4">
+					<h3 class="text-lg font-bold text-neutral-900 mb-2">Follow us</h3>
+					<div class="flex gap-2">
+						<div class="w-8 h-8 bg-emerald-700 rounded-full"></div>
+						<div class="w-8 h-8 bg-emerald-700 rounded-full"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom -->
+		<div class="flex flex-col items-center py-9 gap-4">
+			<p class="text-lg text-neutral-900 text-center">Made with ♥ in Sweden</p>
+			<p class="text-base text-neutral-900 text-center">
+				© 2025 Martin Jakobsson | Mail: Hello@neurapath.com | Website:
+				www.neurapath.com
+			</p>
+		</div>
+	</footer>
 </div>
-
-<style>
-    /* Import or define styles here */
-    :global(body) {
-        margin: 0;
-        font-family: "Inter", "Poppins", Arial, sans-serif;
-    }
-
-    .page-container {
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #ffffff;
-    }
-
-    /* Hero Section */
-    .hero-section {
-        width: 100%;
-        max-width: 2048px;
-        padding: 80px 240px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero-content {
-        max-width: 1080px;
-    }
-
-    .hero-title {
-        color: rgba(19, 20, 21, 1);
-        font-size: 54px;
-        font-weight: 400;
-        font-family: "Poppins", sans-serif;
-        line-height: 1.2;
-        margin-bottom: 2rem;
-    }
-
-    .hero-subtitle {
-        color: rgba(19, 20, 21, 1);
-        font-size: 28px;
-        font-weight: 700;
-        font-family: "Poppins", sans-serif;
-        line-height: 1.18;
-        margin-bottom: 3rem;
-    }
-
-    .hero-buttons {
-        display: flex;
-        gap: 2rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .primary-button {
-        padding: 12px 42px;
-        background-color: #428dff;
-        color: white;
-        border: 2px solid #428dff;
-        border-radius: 5px;
-        font-size: 16px;
-        font-weight: 500;
-        cursor: pointer;
-    }
-
-    .secondary-button {
-        padding: 12px 42px;
-        background-color: transparent;
-        color: #428dff;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        font-weight: 400;
-        cursor: pointer;
-    }
-
-    /* Features Section */
-    .features-section {
-        width: 100%;
-        max-width: 2048px;
-        padding: 70px 240px;
-    }
-
-    .feature {
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-        margin-bottom: 140px;
-    }
-
-    .feature-reverse {
-        flex-direction: row-reverse;
-    }
-
-    .feature-content {
-        flex: 1;
-    }
-
-    .feature-title {
-        color: rgba(19, 20, 21, 1);
-        font-size: 34px;
-        font-weight: 700;
-        font-family: "Poppins", sans-serif;
-        line-height: 1.3;
-        margin-bottom: 1rem;
-    }
-
-    .feature-description {
-        color: rgba(19, 20, 21, 1);
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.8;
-        max-width: 634px;
-    }
-
-    .feature-icon {
-        flex-shrink: 0;
-    }
-
-    .feature-image {
-        width: 128px;
-        height: 128px;
-    }
-
-    /* Testimonials Section */
-    .testimonials-section {
-        width: 100%;
-        max-width: 2048px;
-        padding: 70px 240px;
-        text-align: center;
-    }
-
-    .testimonials-title {
-        color: rgba(19, 20, 21, 1);
-        font-size: 34px;
-        font-weight: 700;
-        font-family: "Poppins", sans-serif;
-        line-height: 1.3;
-        margin-bottom: 3rem;
-    }
-
-    .testimonial {
-        max-width: 767px;
-        margin: 0 auto;
-        padding: 20px 76px 70px;
-    }
-
-    .testimonial-text {
-        color: rgba(19, 20, 21, 1);
-        font-size: 19px;
-        font-weight: 400;
-        font-family: "Poppins", sans-serif;
-        line-height: 1.8;
-        margin-bottom: 2rem;
-    }
-
-    .testimonial-author {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    .author-name {
-        color: rgba(19, 20, 21, 1);
-        font-size: 15px;
-        font-style: italic;
-        font-weight: 400;
-    }
-
-    .author-source {
-        color: rgba(19, 20, 21, 1);
-        font-size: 15px;
-        font-weight: 400;
-    }
-
-    /* Spacer */
-    .spacer {
-        width: 100%;
-        height: 100px;
-        background-color: #428dff;
-    }
-
-    /* Footer Styles */
-    .page-footer {
-        width: 100%;
-        max-width: 2048px;
-        padding: 59px 240px 0;
-        background-color: rgba(255, 255, 255, 1);
-    }
-
-    .footer-content {
-        padding: 0 48px;
-    }
-
-    .footer-columns {
-        display: flex;
-        justify-content: space-between;
-        padding: 36px 0;
-        gap: 2rem;
-    }
-
-    .footer-column {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .footer-column-title {
-        color: rgba(19, 20, 21, 1);
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
-
-    .footer-link {
-        color: rgba(19, 20, 21, 1);
-        font-size: 18px;
-        font-weight: 400;
-        text-decoration: none;
-        line-height: 1.2;
-    }
-
-    .footer-link:hover {
-        color: #428dff;
-    }
-
-    .social-links {
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    .social-icon {
-        width: 32px;
-        height: 32px;
-        background-color: rgba(38, 120, 102, 1);
-        border-radius: 50px;
-    }
-
-    .footer-bottom {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 36px 0;
-        gap: 1rem;
-    }
-
-    .footer-tagline {
-        color: rgba(19, 20, 21, 1);
-        font-size: 18px;
-        font-weight: 400;
-        font-family: Arial, sans-serif;
-        text-align: center;
-    }
-
-    .footer-copyright {
-        color: rgba(19, 20, 21, 1);
-        font-size: 16px;
-        font-weight: 400;
-        text-align: center;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-        .hero-section,
-        .features-section,
-        .testimonials-section,
-        .page-footer {
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .hero-title {
-            font-size: 42px;
-        }
-
-        .hero-subtitle {
-            font-size: 24px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .hero-title {
-            font-size: 32px;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-        }
-
-        .hero-buttons {
-            flex-direction: column;
-        }
-
-        .feature {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .feature-reverse {
-            flex-direction: column;
-        }
-
-        .footer-columns {
-            flex-direction: column;
-        }
-    }
-</style>
