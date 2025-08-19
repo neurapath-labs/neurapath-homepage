@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://landing.neurapath.shop/sitemap.xml

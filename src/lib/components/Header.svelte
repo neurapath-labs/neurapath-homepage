@@ -1,18 +1,20 @@
 <script>
     // Props can be added here for customization if needed
-    const { logoSrc = "/images/logotype.svg", logoAlt = "Neurapath Logo" } = $props();
+    const { logoSrc = "/favicon.svg", logoAlt = "Neurapath Logo" } = $props();
 </script>
 
 <header class="page-header">
-    <img alt={logoAlt} src={logoSrc} class="page-logotype" />
+    <a href="#top" aria-label="Neurapath home">
+        <img alt={logoAlt} src={logoSrc} class="page-logotype" />
+    </a>
     <nav class="page-nav">
         <div class="nav-links">
-            <a href="#pricing" class="nav-link">Pricing</a>
-            <a href="#blog" class="nav-link">Blog</a>
-            <a href="#help" class="nav-link">Help</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
+            <a href="#faq" class="nav-link">FAQ</a>
             <a href="#about" class="nav-link">About</a>
         </div>
-        <button class="cta-button">Get started</button>
+        <a href="https://neurapath.shop/register" class="cta-button" rel="noopener" aria-label="Get started free on Neurapath">Get started</a>
     </nav>
 </header>
 

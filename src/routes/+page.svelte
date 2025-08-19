@@ -1,58 +1,80 @@
 <script lang="ts">
 	import Header from "$lib/components/Header.svelte";
+	import { Brain, Layers3, Sparkles } from "@lucide/svelte";
+	const APP_URL = "https://neurapath.shop";
 </script>
 
 <svelte:head>
-	<title>Neurapath - Beautiful and Powerful Learning</title>
+	<title>Neurapath – Learn faster with spaced repetition and active recall</title>
 	<meta
 		name="description"
-		content="Beautiful and powerful learning based on scientific methods. The all-in-one tool for thinking and learning."
+		content="Think, learn, and remember faster with Neurapath. Spaced repetition, active recall, and beautiful design in one powerful learning app."
 	/>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "What is Neurapath?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Neurapath is an all-in-one learning app that helps you think, learn, and remember faster using spaced repetition and active recall."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Who is Neurapath for?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Students, researchers, and professionals who want to master complex topics and retain knowledge long-term."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "How much does Neurapath cost?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Get started free. Paid plans add collaboration, advanced export, and more."
+					}
+				}
+			]
+		}
+	</script>
 </svelte:head>
 
 <!-- Page wrapper -->
-<div class="w-full min-h-screen flex flex-col items-center bg-white font-sans">
+<div id="top" class="w-full min-h-screen flex flex-col items-center bg-white font-sans">
 	<!-- Header -->
 	<Header />
 
 	<!-- Hero -->
-	<section
-		class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-20 flex flex-col items-center text-center"
-	>
-		<div class="max-w-[1080px]">
-			<h1
-				class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight text-neutral-900 mb-8"
-			>
-				Beautiful and powerful learning based on scientific methods.
-			</h1>
-			<p
-				class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight text-neutral-900 mb-12"
-			>
-				The all-in-one tool for thinking and learning: Built to empower students,
-				researchers and professionals
-			</p>
-
-			<div
-				class="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center"
-			>
-				<button
-					class="px-10 py-3 bg-blue-500 border-2 border-blue-500 text-white rounded transition hover:bg-blue-600"
-				>
-					Learn more
-				</button>
-				<button
-					class="px-10 py-3 text-blue-500 rounded transition hover:text-blue-600"
-				>
-					Enter Evecloud
-				</button>
+	<section class="w-full bg-gradient-to-b from-blue-50 to-white">
+		<div class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-20 flex flex-col items-center text-center">
+			<div class="max-w-[1080px]">
+				<h1 class="text-3xl sm:text-5xl xl:text-6xl font-semibold tracking-tight text-neutral-900 mb-6">
+					Learn faster. Remember longer.
+				</h1>
+				<p class="text-lg sm:text-2xl lg:text-3xl font-normal text-neutral-700 mb-10">
+					Neurapath combines <span class="font-semibold text-neutral-900">spaced repetition</span> and
+					<span class="font-semibold text-neutral-900">active recall</span> in a beautiful, all‑in‑one app.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+					<a href={`${APP_URL}/register`} class="px-8 py-3 bg-blue-600 border-2 border-blue-600 text-white rounded-md shadow-sm transition hover:bg-blue-700" aria-label="Get started free">
+						Get started free
+					</a>
+					<a href={APP_URL} class="px-8 py-3 text-blue-600 rounded-md transition hover:text-blue-700" rel="noopener" aria-label="Open Neurapath">
+						Open Neurapath →
+					</a>
+				</div>
+				<p class="mt-4 text-sm text-neutral-500">No credit card required</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- Features -->
-	<section
-		class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-16"
-	>
+	<section id="features" class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-20">
 		<!-- Feature 1 -->
 		<div
 			class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-36"
@@ -63,19 +85,15 @@
 				>
 					Faster learning.
 				</h2>
-				<p
-					class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl"
-				>
-					Evecloud is a simple yet powerful app that utilises a technique which
-					is proven to better focus and reduce stress.¹ ²
+				<p class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl">
+					Study with scientifically‑proven methods. Turn any concept into smart cards and
+					build durable understanding without cramming.
 				</p>
 			</div>
 			<div class="flex-shrink-0">
-				<img
-					src="/images/cloud-sharing-upload.svg"
-					alt="Faster Learning"
-					class="w-32 h-32"
-				/>
+				<div class="w-28 h-28 rounded-xl bg-blue-50 flex items-center justify-center">
+					<Sparkles class="text-blue-600" size={48} aria-hidden="true" />
+				</div>
 			</div>
 		</div>
 
@@ -89,19 +107,15 @@
 				>
 					Knowledge that lasts forever.
 				</h2>
-				<p
-					class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl"
-				>
-					Evecloud is a simple yet powerful app that utilises a technique which
-					is proven to better focus and reduce stress.¹ ²
+				<p class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl">
+					Intelligent review schedules resurface the right facts at the right time so you
+					retain more with less effort.
 				</p>
 			</div>
 			<div class="flex-shrink-0">
-				<img
-					src="/images/graph.svg"
-					alt="Knowledge Management"
-					class="w-32 h-32"
-				/>
+				<div class="w-28 h-28 rounded-xl bg-blue-50 flex items-center justify-center">
+					<Brain class="text-blue-600" size={48} aria-hidden="true" />
+				</div>
 			</div>
 		</div>
 
@@ -115,43 +129,59 @@
 				>
 					Flashcards &amp; cloze deletions.
 				</h2>
-				<p
-					class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl"
-				>
-					Capture and link your ideas. RemNote is built for thinking and
-					long-term knowledge management.
+				<p class="text-base md:text-lg text-neutral-900 leading-relaxed max-w-xl">
+					Create rich cards in seconds. Use cloze deletions to test recall and build
+					deep understanding of difficult material.
 				</p>
 			</div>
 			<div class="flex-shrink-0">
-				<img
-					src="/images/flashcards.svg"
-					alt="Flashcards"
-					class="w-32 h-32"
-				/>
+				<div class="w-28 h-28 rounded-xl bg-blue-50 flex items-center justify-center">
+					<Layers3 class="text-blue-600" size={48} aria-hidden="true" />
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Testimonials -->
-	<section
-		class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-16 text-center"
-	>
-		<h2
-			class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-12"
-		>
-			Loved by so many people around the world.
+	<section id="testimonials" class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-20 text-center">
+		<h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-12">
+			Loved by learners worldwide
 		</h2>
-		<div class="max-w-2xl mx-auto px-8 py-16">
-			<p
-				class="text-base md:text-lg text-neutral-900 leading-relaxed mb-8"
-			>
-				"This learning platform is amazing! It has helped me so much in my
-				studies and I would recommend it to any medical student."
-			</p>
-			<div class="flex justify-center gap-2">
-				<span class="text-sm text-neutral-900 italic">thrvskn</span>
-				<span class="text-sm text-neutral-900">– App Store 🇺🇸</span>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			<div class="rounded-lg border p-6 text-left">
+				<p class="text-neutral-800">“Neurapath made complex topics click. My recall doubled in weeks.”</p>
+				<p class="mt-4 text-sm text-neutral-500">Alex – Medical Student</p>
 			</div>
+			<div class="rounded-lg border p-6 text-left">
+				<p class="text-neutral-800">“The review timing is perfect. I study less and remember more.”</p>
+				<p class="mt-4 text-sm text-neutral-500">Priya – Resident</p>
+			</div>
+			<div class="rounded-lg border p-6 text-left">
+				<p class="text-neutral-800">“Beautiful design meets serious learning science. Exactly what I needed.”</p>
+				<p class="mt-4 text-sm text-neutral-500">Marco – Researcher</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section id="faq" class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 py-20">
+		<h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mb-8">Frequently asked questions</h2>
+		<div class="space-y-4">
+			<details class="rounded-lg border p-4" open>
+				<summary class="cursor-pointer font-medium">What is Neurapath?</summary>
+				<p class="mt-2 text-neutral-700">An all‑in‑one learning app that helps you think, learn, and remember faster using spaced repetition and active recall.</p>
+			</details>
+			<details class="rounded-lg border p-4">
+				<summary class="cursor-pointer font-medium">Who is Neurapath for?</summary>
+				<p class="mt-2 text-neutral-700">Students, researchers, and professionals who want long‑term retention and deep understanding.</p>
+			</details>
+			<details class="rounded-lg border p-4">
+				<summary class="cursor-pointer font-medium">How much does it cost?</summary>
+				<p class="mt-2 text-neutral-700">Get started free. Upgrade anytime for collaboration, advanced export, and more.</p>
+			</details>
+		</div>
+		<div class="mt-8">
+			<a href={`${APP_URL}/register`} class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">Start free</a>
 		</div>
 	</section>
 
@@ -159,9 +189,7 @@
 	<div class="w-full h-24 bg-blue-500"></div>
 
 	<!-- Footer -->
-	<footer
-		class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 pt-14 bg-white"
-	>
+	<footer id="about" class="w-full max-w-[2048px] px-6 md:px-12 lg:px-60 pt-14 bg-white">
 		<div class="px-12">
 			<div
 				class="flex flex-col lg:flex-row justify-between py-9 gap-8"
@@ -169,25 +197,22 @@
 				<!-- About -->
 				<div class="flex flex-col gap-4">
 					<h3 class="text-lg font-bold text-neutral-900 mb-2">About</h3>
-					<a href="/story" class="text-lg text-neutral-900 hover:text-blue-500">Our Story</a>
-					<a href="/blog" class="text-lg text-neutral-900 hover:text-blue-500">Blog</a>
-					<a href="/roadmap" class="text-lg text-neutral-900 hover:text-blue-500">Roadmap</a>
-					<a href="/changelog" class="text-lg text-neutral-900 hover:text-blue-500">Changelog</a>
+					<a href="https://neurapath.shop" class="text-lg text-neutral-900 hover:text-blue-500" rel="noopener">App</a>
+					<a href="#features" class="text-lg text-neutral-900 hover:text-blue-500">Features</a>
+					<a href="#testimonials" class="text-lg text-neutral-900 hover:text-blue-500">Testimonials</a>
+					<a href="#faq" class="text-lg text-neutral-900 hover:text-blue-500">FAQ</a>
 				</div>
 
 				<!-- Support -->
 				<div class="flex flex-col gap-4">
 					<h3 class="text-lg font-bold text-neutral-900 mb-2">Support</h3>
-					<a href="/help" class="text-lg text-neutral-900 hover:text-blue-500">Help</a>
-					<a href="/docs" class="text-lg text-neutral-900 hover:text-blue-500">Documentation</a>
-					<a href="/contribute" class="text-lg text-neutral-900 hover:text-blue-500">Contribute</a>
-					<a href="/contact" class="text-lg text-neutral-900 hover:text-blue-500">Contact</a>
+					<a href="mailto:support@neurapath.com" class="text-lg text-neutral-900 hover:text-blue-500">Contact</a>
+					<a href="#top" class="text-lg text-neutral-900 hover:text-blue-500">Back to top</a>
 				</div>
 
 				<!-- Legal -->
 				<div class="flex flex-col gap-4">
 					<h3 class="text-lg font-bold text-neutral-900 mb-2">Legal</h3>
-					<a href="/imprint" class="text-lg text-neutral-900 hover:text-blue-500">Imprint</a>
 					<a href="/privacy" class="text-lg text-neutral-900 hover:text-blue-500">Privacy</a>
 					<a href="/terms" class="text-lg text-neutral-900 hover:text-blue-500">Terms of Use</a>
 				</div>
@@ -195,9 +220,10 @@
 				<!-- Social -->
 				<div class="flex flex-col gap-4">
 					<h3 class="text-lg font-bold text-neutral-900 mb-2">Follow us</h3>
-					<div class="flex gap-2">
-						<div class="w-8 h-8 bg-emerald-700 rounded-full"></div>
-						<div class="w-8 h-8 bg-emerald-700 rounded-full"></div>
+					<div class="flex gap-3 text-neutral-700">
+						<a href="https://github.com/neurapath" class="hover:text-blue-600" rel="noopener">GitHub</a>
+						<span>·</span>
+						<a href="https://x.com/neurapath" class="hover:text-blue-600" rel="noopener">X</a>
 					</div>
 				</div>
 			</div>
@@ -206,10 +232,7 @@
 		<!-- Bottom -->
 		<div class="flex flex-col items-center py-9 gap-4">
 			<p class="text-lg text-neutral-900 text-center">Made with ♥ in Sweden</p>
-			<p class="text-base text-neutral-900 text-center">
-				© 2025 Martin Jakobsson | Mail: Hello@neurapath.com | Website:
-				www.neurapath.com
-			</p>
+			<p class="text-base text-neutral-900 text-center">© 2025 Neurapath</p>
 		</div>
 	</footer>
 </div>
