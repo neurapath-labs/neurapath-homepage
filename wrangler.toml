@@ -23,3 +23,5 @@ mode = "smart"
 [vars]
 NODE_VERSION = "24.6.0"
 ENVIRONMENT = "production"
+PUBLIC_POSTHOG_KEY = "phc_VzmOv7NIStk1xXr2SWJIoVoUq8jhUMqRRtlnHifcF0d"
+PUBLIC_POSTHOG_HOST = "https://eu.i.posthog.com"
