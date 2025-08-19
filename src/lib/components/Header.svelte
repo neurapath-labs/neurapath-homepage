@@ -1,7 +1,6 @@
-<script lang="ts">
+<script>
     // Props can be added here for customization if needed
-    export let logoSrc = "/images/logotype.svg";
-    export let logoAlt = "Neurapath Logo";
+    const { logoSrc = "/images/logotype.svg", logoAlt = "Neurapath Logo" } = $props();
 </script>
 
 <header class="page-header">
