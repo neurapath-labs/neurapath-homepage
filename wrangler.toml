@@ -2,7 +2,7 @@ name = "neurapath-homepage"
 main = ".svelte-kit/cloudflare/_worker.js"
 preview_urls = false
 compatibility_flags = [ "nodejs_compat" ]
-compatibility_date = "2025-08-19"
+compatibility_date = "2025-09-01"
 minify = true
 
 routes = [
@@ -21,7 +21,7 @@ enabled = true
 mode = "smart"
 
 [vars]
-NODE_VERSION = "24.6.0"
+NODE_VERSION = "24.8.0"
 ENVIRONMENT = "production"
 PUBLIC_POSTHOG_KEY = "phc_VzmOv7NIStk1xXr2SWJIoVoUq8jhUMqRRtlnHifcF0d"
 PUBLIC_POSTHOG_HOST = "https://eu.i.posthog.com"
