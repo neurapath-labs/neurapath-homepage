@@ -16,29 +16,26 @@
     "cloudflare"
   ],
   "author": "Martin Jakobsson <Hello@neurapath.shop>",
-  "engines": {
-    "node": ">=22"
-  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "cf-typegen": "wrangler types ./src/worker-configuration.d.ts",
-    "deploy": "bun run build && bun run cf-typegen && wrangler deploy --minify",
+    "deploy": "bun run build && bun run cf-typegen && wrangler deploy",
     "clean": "rm -rf .svelte-kit && rm -rf node_modules && rm -rf .wrangler && rm -rf .svelte-kit && rm -f bun.lock && rm -f package-lock.json && bun i"
   },
   "devDependencies": {
-    "@lucide/svelte": "^0.553.0",
+    "@lucide/svelte": "^0.554.0",
     "@sveltejs/adapter-cloudflare": "^7.2.4",
-    "@sveltejs/kit": "^2.48.4",
+    "@sveltejs/kit": "^2.48.5",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.17",
     "clsx": "^2.1.1",
-    "svelte": "^5.43.5",
-    "svelte-check": "^4.3.3",
+    "svelte": "^5.43.12",
+    "svelte-check": "^4.3.4",
     "tailwind-merge": "^3.4.0",
     "tailwind-variants": "^3.1.1",
     "tailwindcss": "^4.1.17",
@@ -46,10 +43,10 @@
     "tw-animate-css": "^1.4.0",
     "typescript": "^5.9.3",
     "vite": "^7.2.2",
-    "wrangler": "^4.46.0"
+    "wrangler": "^4.49.0"
   },
   "dependencies": {
-    "posthog-js": "^1.290.0",
-    "posthog-node": "^5.11.2"
+    "posthog-js": "^1.296.1",
+    "posthog-node": "^5.12.0"
   }
 }
