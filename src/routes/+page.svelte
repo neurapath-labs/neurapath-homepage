@@ -2,7 +2,7 @@
 	import Header from "$lib/components/Header.svelte";
 	import { Brain, Layers3, Sparkles, Clock, Target, CheckCircle, ArrowRight, Zap, TrendingUp, Play, Star, ChevronDown, ChevronUp, GraduationCap, Stethoscope, Briefcase, Globe, Shield, Smartphone, BookOpen, Users, Award, Rocket, Check, X as XIcon, Quote, Timer, BarChart3, Lightbulb } from "@lucide/svelte";
 	
-	const APP_URL = "https://neurapath.shop";
+	const APP_URL = "https://app.neurapath.shop";
 	
 	// Stats for social proof
 	const stats = [
@@ -215,14 +215,14 @@
 		content="Master any subject 3× faster with Neurapath. Science-backed spaced repetition and active recall in a beautiful, modern app. Free to start."
 	/>
 	<meta name="keywords" content="spaced repetition, flashcards, active recall, learning app, study app, Anki alternative, memory, retention" />
-	<link rel="canonical" href="https://neurapath.com" />
+	<link rel="canonical" href="https://neurapath.shop" />
 	
 	<!-- Open Graph -->
 	<meta property="og:title" content="Neurapath – Learn faster with spaced repetition" />
 	<meta property="og:description" content="Master any subject 3× faster with science-backed learning. Free to start." />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://neurapath.com" />
-	<meta property="og:image" content="https://neurapath.com/og-image.svg" />
+	<meta property="og:url" content="https://neurapath.shop" />
+	<meta property="og:image" content="https://neurapath.shop/og-image.png" />
 	
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -638,7 +638,7 @@
 			
 			<div class="text-center mt-12">
 				<p class="text-slate-600 mb-4">Still have questions?</p>
-				<a href="mailto:support@neurapath.com" class="text-blue-600 font-semibold hover:text-blue-700 transition">
+				<a href="mailto:support@neurapath.shop" class="text-blue-600 font-semibold hover:text-blue-700 transition">
 					Contact our support team →
 				</a>
 			</div>
@@ -694,7 +694,7 @@
 				<div>
 					<h3 class="font-semibold text-white mb-4">Product</h3>
 					<ul class="space-y-3">
-						<li><a href="https://neurapath.shop" class="hover:text-white transition" rel="noopener">App</a></li>
+						<li><a href="https://app.neurapath.shop" class="hover:text-white transition" rel="noopener">App</a></li>
 						<li><a href="#features" class="hover:text-white transition">Features</a></li>
 						<li><a href="#how-it-works" class="hover:text-white transition">How it works</a></li>
 						<li><a href="#testimonials" class="hover:text-white transition">Testimonials</a></li>
@@ -706,7 +706,7 @@
 					<h3 class="font-semibold text-white mb-4">Support</h3>
 					<ul class="space-y-3">
 						<li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
-						<li><a href="mailto:support@neurapath.com" class="hover:text-white transition">Contact</a></li>
+						<li><a href="mailto:support@neurapath.shop" class="hover:text-white transition">Contact</a></li>
 						<li><a href="#top" class="hover:text-white transition">Back to top</a></li>
 					</ul>
 				</div>

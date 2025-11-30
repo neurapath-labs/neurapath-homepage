@@ -6,8 +6,8 @@ minify = true
 account_id = "6c2dccead5cc8b117a208576df3a8c2c"
 
 routes = [
-  { pattern = "landing.neurapath.shop", custom_domain = true },
-  { pattern = "www.landing.neurapath.shop", custom_domain = true }
+  { pattern = "neurapath.shop", custom_domain = true },
+  { pattern = "www.neurapath.shop", custom_domain = true }
 ]
 
 [assets]

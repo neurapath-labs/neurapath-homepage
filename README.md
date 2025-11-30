@@ -117,7 +117,7 @@ NODE_ENV=development
 ENVIRONMENT=development
 PUBLIC_SITE_URL=http://localhost:5173
 PUBLIC_SITE_NAME=Neurapath
-PUBLIC_CONTACT_EMAIL=hello@neurapath.com
+PUBLIC_CONTACT_EMAIL=hello@neurapath.shop
 ```
 
 ### Optional Variables
@@ -193,13 +193,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👥 Team
 
 **Author**: Martin Jakobsson ([@neurapath](https://github.com/neurapath))  
-**Email**: hello@neurapath.com
+**Email**: hello@neurapath.shop
 
 ## 🔗 Links
 
-- [Neurapath Website](https://neurapath.com)
-- [Documentation](https://docs.neurapath.com)
-- [Support](mailto:support@neurapath.com)
+- [Neurapath Website](https://neurapath.shop)
+- [Documentation](https://docs.neurapath.shop)
+- [Support](mailto:support@neurapath.shop)
 
 ## 📸 Screenshots
 
@@ -209,7 +209,7 @@ The project includes various screenshots in the `Screenshots/` directory showcas
 
 <div align="center">
 
-**[Website](https://neurapath.com)** • **[Documentation](https://docs.neurapath.com)** • **[Support](mailto:support@neurapath.com)**
+**[Website](https://neurapath.shop)** • **[Documentation](https://docs.neurapath.shop)** • **[Support](mailto:support@neurapath.shop)**
 
 Made with ❤️ by the Neurapath team
 

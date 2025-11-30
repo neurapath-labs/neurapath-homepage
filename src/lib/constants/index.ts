@@ -1,7 +1,7 @@
 // Application constants and configuration
-export const APP_URL = "https://neurapath.shop";
-export const LANDING_URL = "https://landing.neurapath.shop";
-export const SUPPORT_EMAIL = "support@neurapath.com";
+export const APP_URL = "https://app.neurapath.shop";
+export const LANDING_URL = "https://neurapath.shop";
+export const SUPPORT_EMAIL = "support@neurapath.shop";
 
 // SEO constants
 export const SITE_NAME = "Neurapath";
