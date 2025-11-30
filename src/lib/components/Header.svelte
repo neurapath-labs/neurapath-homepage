@@ -1,47 +1,169 @@
-<script>
-    // Props can be added here for customization if needed
-    const { logoSrc = "/favicon.svg", logoAlt = "Neurapath Logo" } = $props();
+<script lang="ts">
+    import { Menu, X } from "@lucide/svelte";
+    import { APP_URL } from "$lib/constants";
+    import { browser } from "$app/environment";
+
+    interface Props {
+        logoSrc?: string;
+        logoAlt?: string;
+    }
+
+    const { logoSrc = "/favicon.svg", logoAlt = "Neurapath Logo" }: Props = $props();
+    
+    let mobileMenuOpen = $state(false);
+    let scrolled = $state(false);
+    
+    // Handle scroll for header background
+    $effect(() => {
+        if (!browser) return;
+        
+        const handleScroll = () => {
+            scrolled = window.scrollY > 20;
+        };
+        
+        // Check initial scroll position
+        handleScroll();
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    });
+
+    // Close mobile menu on escape key
+    $effect(() => {
+        if (!browser || !mobileMenuOpen) return;
+
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                mobileMenuOpen = false;
+            }
+        };
+
+        window.addEventListener('keydown', handleEscape);
+        return () => window.removeEventListener('keydown', handleEscape);
+    });
+
+    // Prevent body scroll when mobile menu is open
+    $effect(() => {
+        if (!browser) return;
+        
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+        };
+    });
 </script>
 
-<header class="page-header">
-    <a href="#top" aria-label="Neurapath home">
-        <img alt={logoAlt} src={logoSrc} class="page-logotype" />
-    </a>
-    <nav class="page-nav">
-        <div class="nav-links">
-            <a href="#features" class="nav-link">Features</a>
-            <a href="#testimonials" class="nav-link">Testimonials</a>
-            <a href="#faq" class="nav-link">FAQ</a>
-            <a href="#about" class="nav-link">About</a>
-        </div>
-        <a href="https://neurapath.shop/register" class="cta-button" rel="noopener" aria-label="Get started free on Neurapath">Get started</a>
-    </nav>
+<header class="page-header" class:scrolled role="banner">
+    <div class="header-inner">
+        <a href="#top" aria-label="Neurapath home" class="logo-link">
+            <img alt={logoAlt} src={logoSrc} class="page-logotype" width="40" height="40" />
+            <span class="logo-text">Neurapath</span>
+        </a>
+        
+        <!-- Mobile menu button -->
+        <button 
+            class="mobile-menu-btn" 
+            onclick={() => mobileMenuOpen = !mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="main-nav"
+            type="button"
+        >
+            {#if mobileMenuOpen}
+                <X size={24} aria-hidden="true" />
+            {:else}
+                <Menu size={24} aria-hidden="true" />
+            {/if}
+        </button>
+        
+        <nav id="main-nav" class="page-nav" class:open={mobileMenuOpen} aria-label="Main navigation">
+            <div class="nav-links">
+                <a href="#features" class="nav-link" onclick={() => mobileMenuOpen = false}>Features</a>
+                <a href="#how-it-works" class="nav-link" onclick={() => mobileMenuOpen = false}>How it works</a>
+                <a href="#testimonials" class="nav-link" onclick={() => mobileMenuOpen = false}>Testimonials</a>
+                <a href="#faq" class="nav-link" onclick={() => mobileMenuOpen = false}>FAQ</a>
+            </div>
+            <div class="nav-cta">
+                <a href="{APP_URL}/login" class="login-link" rel="noopener noreferrer">Log in</a>
+                <a href="{APP_URL}/register" class="cta-button" rel="noopener noreferrer" aria-label="Get started free on Neurapath">
+                    Get started free
+                </a>
+            </div>
+        </nav>
+    </div>
 </header>
 
 <style>
     .page-header {
         width: 100%;
-        max-width: 2048px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: all 0.3s ease;
+    }
+
+    .page-header.scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-inner {
+        max-width: 1400px;
+        margin: 0 auto;
         display: flex;
-        padding: 28px 240px;
+        padding: 16px 48px;
         align-items: center;
         justify-content: space-between;
-        background-color: rgba(255, 255, 255, 1);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .logo-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
     }
 
     .page-logotype {
-        width: 64px;
-        height: 64px;
+        width: 40px;
+        height: 40px;
         cursor: pointer;
         transition: transform 0.2s ease;
     }
 
-    .page-logotype:hover {
+    .logo-link:hover .page-logotype {
         transform: scale(1.05);
+    }
+
+    .logo-text {
+        font-size: 20px;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.02em;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        padding: 8px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #0f172a;
+        border-radius: 8px;
+        transition: background-color 0.2s;
+    }
+
+    .mobile-menu-btn:hover {
+        background-color: rgba(0, 0, 0, 0.05);
     }
 
     .page-nav {
@@ -52,101 +174,137 @@
 
     .nav-links {
         display: flex;
-        gap: 2rem;
+        gap: 0.5rem;
     }
 
     .nav-link {
-        color: rgba(0, 0, 0, 1);
-        font-size: 18px;
-        font-weight: 400;
+        color: #475569;
+        font-size: 15px;
+        font-weight: 500;
         text-decoration: none;
-        padding: 8px 44px;
-        border-radius: 4px;
+        padding: 8px 16px;
+        border-radius: 8px;
         transition: all 0.2s ease;
-        position: relative;
     }
 
     .nav-link:hover {
-        color: #428dff;
-        background-color: rgba(66, 141, 255, 0.05);
+        color: #0f172a;
+        background-color: rgba(0, 0, 0, 0.04);
     }
 
-    .nav-link:active {
-        transform: translateY(1px);
+    .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .login-link {
+        color: #475569;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .login-link:hover {
+        color: #0f172a;
+        background-color: rgba(0, 0, 0, 0.04);
     }
 
     .cta-button {
-        padding: 12px 31px;
-        background-color: #428dff;
+        padding: 10px 20px;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         color: white;
         border: none;
-        border-radius: 4px;
-        font-size: 18px;
-        font-weight: 500;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
         cursor: pointer;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 4px rgba(66, 141, 255, 0.2);
+        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2), 0 4px 12px rgba(37, 99, 235, 0.15);
+        text-decoration: none;
     }
 
     .cta-button:hover {
-        background-color: #357abd;
         transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(66, 141, 255, 0.3);
+        box-shadow: 0 4px 8px rgba(37, 99, 235, 0.25), 0 8px 24px rgba(37, 99, 235, 0.2);
     }
 
     .cta-button:active {
         transform: translateY(0);
-        box-shadow: 0 2px 4px rgba(66, 141, 255, 0.2);
     }
 
     /* Responsive Design */
-    @media (max-width: 1200px) {
-        .page-header {
-            padding-left: 2rem;
-            padding-right: 2rem;
+    @media (max-width: 1024px) {
+        .header-inner {
+            padding: 16px 24px;
         }
     }
 
     @media (max-width: 768px) {
-        .page-header {
-            flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
-            position: relative;
+        .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .page-nav {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
             flex-direction: column;
-            gap: 1rem;
-            width: 100%;
+            padding: 24px;
+            gap: 24px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .page-nav.open {
+            transform: translateX(0);
         }
 
         .nav-links {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
+            flex-direction: column;
+            width: 100%;
+            gap: 0;
         }
 
         .nav-link {
-            padding: 8px 20px;
+            padding: 16px;
+            font-size: 18px;
+            border-radius: 12px;
+        }
+
+        .nav-cta {
+            flex-direction: column;
+            width: 100%;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .login-link {
+            width: 100%;
+            text-align: center;
+            padding: 14px;
             font-size: 16px;
+            background-color: #f1f5f9;
+            border-radius: 12px;
         }
 
         .cta-button {
-            width: fit-content;
-            align-self: center;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .nav-links {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .nav-link {
+            width: 100%;
             text-align: center;
-            padding: 12px 20px;
+            padding: 14px 20px;
+            font-size: 16px;
+            border-radius: 12px;
         }
     }
 </style>
