@@ -58,9 +58,9 @@
     });
 </script>
 
-<header class="page-header" class:scrolled role="banner">
+<header class="page-header" class:scrolled class:menu-open={mobileMenuOpen} role="banner">
     <div class="header-inner">
-        <a href="#top" aria-label="Neurapath home" class="logo-link">
+        <a href="/" aria-label="Neurapath home" class="logo-link">
             <img alt={logoAlt} src={logoSrc} class="page-logotype" width="40" height="40" />
             <span class="logo-text">Neurapath</span>
         </a>
@@ -81,12 +81,13 @@
             {/if}
         </button>
         
-        <nav id="main-nav" class="page-nav" class:open={mobileMenuOpen} aria-label="Main navigation">
+        <!-- Desktop nav (inside header-inner) -->
+        <nav class="page-nav desktop-nav" aria-label="Main navigation">
             <div class="nav-links">
-                <a href="#features" class="nav-link" onclick={() => mobileMenuOpen = false}>Features</a>
-                <a href="#how-it-works" class="nav-link" onclick={() => mobileMenuOpen = false}>How it works</a>
-                <a href="#testimonials" class="nav-link" onclick={() => mobileMenuOpen = false}>Testimonials</a>
-                <a href="#faq" class="nav-link" onclick={() => mobileMenuOpen = false}>FAQ</a>
+                <a href="/#features" class="nav-link">Features</a>
+                <a href="/#how-it-works" class="nav-link">How it works</a>
+                <a href="/#testimonials" class="nav-link">Testimonials</a>
+                <a href="/#faq" class="nav-link">FAQ</a>
             </div>
             <div class="nav-cta">
                 <a href="{APP_URL}/login" class="login-link" rel="noopener noreferrer">Log in</a>
@@ -97,6 +98,24 @@
         </nav>
     </div>
 </header>
+
+<!-- Mobile nav (outside header, renders as overlay) -->
+{#if mobileMenuOpen}
+<nav id="main-nav" class="mobile-nav-overlay" aria-label="Main navigation">
+    <div class="nav-links">
+        <a href="/#features" class="nav-link" onclick={() => mobileMenuOpen = false}>Features</a>
+        <a href="/#how-it-works" class="nav-link" onclick={() => mobileMenuOpen = false}>How it works</a>
+        <a href="/#testimonials" class="nav-link" onclick={() => mobileMenuOpen = false}>Testimonials</a>
+        <a href="/#faq" class="nav-link" onclick={() => mobileMenuOpen = false}>FAQ</a>
+    </div>
+    <div class="nav-cta">
+        <a href="{APP_URL}/login" class="login-link" rel="noopener noreferrer" onclick={() => mobileMenuOpen = false}>Log in</a>
+        <a href="{APP_URL}/register" class="cta-button" rel="noopener noreferrer" aria-label="Get started free on Neurapath" onclick={() => mobileMenuOpen = false}>
+            Get started free
+        </a>
+    </div>
+</nav>
+{/if}
 
 <style>
     .page-header {
@@ -110,6 +129,10 @@
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         transition: all 0.3s ease;
+    }
+
+    .page-header.menu-open {
+        background-color: white;
     }
 
     .page-header.scrolled {
@@ -248,25 +271,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 120;
+            position: relative;
         }
 
-        .page-nav {
-            position: fixed;
-            top: 72px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: white;
-            flex-direction: column;
-            padding: 24px;
-            gap: 24px;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            overflow-y: auto;
-        }
-
-        .page-nav.open {
-            transform: translateX(0);
+        .desktop-nav {
+            display: none;
         }
 
         .nav-links {
@@ -305,6 +315,28 @@
             padding: 14px 20px;
             font-size: 16px;
             border-radius: 12px;
+        }
+    }
+
+    /* Mobile nav overlay - outside header to avoid stacking context issues */
+    .mobile-nav-overlay {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .mobile-nav-overlay {
+            display: flex;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            flex-direction: column;
+            padding: 24px;
+            gap: 24px;
+            overflow-y: auto;
+            z-index: 9999;
         }
     }
 </style>

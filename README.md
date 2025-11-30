@@ -15,12 +15,14 @@ A modern, responsive homepage for Neurapath - an innovative learning platform th
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [SvelteKit 2.26+](https://kit.svelte.dev/) with [Svelte 5.36+](https://svelte.dev/)
+- **Framework**: [SvelteKit 2.49+](https://kit.svelte.dev/) with [Svelte 5.45+](https://svelte.dev/)
 - **Styling**: [TailwindCSS 4.1+](https://tailwindcss.com/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Build Tool**: [Vite](https://vitejs.dev/) (rolldown-vite)
-- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/)
+- **Language**: [TypeScript 5.9+](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite 7.2+](https://vitejs.dev/)
+- **Runtime**: [Bun 1.3+](https://bun.sh/)
+- **Deployment**: [Cloudflare Workers](https://workers.cloudflare.com/)
 - **Icons**: [Lucide Svelte](https://lucide.dev/)
+- **Analytics**: [PostHog](https://posthog.com/)
 
 ## 📋 Prerequisites
 
@@ -40,18 +42,18 @@ Before you begin, ensure you have the following installed:
 
 2. **Install dependencies**
    ```bash
-   npm install
+   bun install
    ```
 
 3. **Set up environment variables**
    ```bash
-   cp .env.example .env
+   cp env.example .env
    # Edit .env with your configuration
    ```
 
 4. **Start the development server**
    ```bash
-   npm run dev
+   bun run dev
    ```
 
 5. **Open your browser**
@@ -66,13 +68,12 @@ Before you begin, ensure you have the following installed:
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run check` | Run Svelte type checking |
-| `npm run check:watch` | Run type checking in watch mode |
-| `npm run cf:dev` | Start Cloudflare Pages local development |
-| `npm run cf:deploy` | Deploy to Cloudflare Pages (staging) |
-| `npm run cf:deploy:prod` | Deploy to Cloudflare Pages (production) |
+| `bun run dev` | Start development server |
+| `bun run build` | Build for production |
+| `bun run check` | Run Svelte type checking |
+| `bun run check:watch` | Run type checking in watch mode |
+| `bun run deploy` | Build and deploy to Cloudflare Workers |
+| `bun run clean` | Clean build artifacts and reinstall dependencies |
 
 ### Project Structure
 
@@ -81,12 +82,17 @@ src/
 ├── lib/
 │   ├── components/          # Reusable Svelte components
 │   │   ├── ui/             # UI component library
-│   │   └── Header.svelte   # Site header component
+│   │   ├── Header.svelte   # Site header with mobile menu
+│   │   └── Footer.svelte   # Site footer
+│   ├── constants/          # App constants (URLs, emails)
+│   ├── server/             # Server-side utilities
 │   ├── index.ts            # Library exports
 │   └── utils.ts            # Utility functions
 ├── routes/
 │   ├── +layout.svelte      # Root layout
-│   └── +page.svelte        # Homepage
+│   ├── +page.svelte        # Homepage
+│   ├── privacy/            # Privacy Policy page
+│   └── terms/              # Terms of Service page
 ├── app.css                 # Global styles
 ├── app.d.ts                # TypeScript declarations
 └── app.html                # HTML template
@@ -130,28 +136,19 @@ See `.env.example` for the complete list of available configuration options.
 
 ## 🚀 Deployment
 
-### Cloudflare Pages (Recommended)
+### Cloudflare Workers (Recommended)
 
-1. **Build the project**
+1. **Login to Cloudflare**
    ```bash
-   npm run build
+   npx wrangler login
    ```
 
-2. **Deploy to staging**
+2. **Deploy to production**
    ```bash
-   npm run cf:deploy
+   bun run deploy
    ```
 
-3. **Deploy to production**
-   ```bash
-   npm run cf:deploy:prod
-   ```
-
-### Manual Deployment
-
-1. Build the project: `npm run build`
-2. Upload the `.svelte-kit/cloudflare` directory to your hosting provider
-3. Configure your server to serve the files with proper headers
+This will build the project and deploy it to Cloudflare Workers using the configuration in `wrangler.toml`.
 
 ## 🤝 Contributing
 
@@ -165,8 +162,8 @@ We welcome contributions! Please follow these steps:
 3. **Make your changes**
 4. **Test your changes**
    ```bash
-   npm run check
-   npm run build
+   bun run check
+   bun run build
    ```
 5. **Commit your changes**
    ```bash
